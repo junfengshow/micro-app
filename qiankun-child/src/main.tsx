@@ -31,7 +31,6 @@ const Menu = () => (
         <Route
           path='/child'
           element={<Home />}
-          exact
         />
         <Route
           path='/child/user'
@@ -62,12 +61,12 @@ export async function bootstrap () {
   console.log('[react 16] react app bootstraped')
 }
 
-export async function mount (props) {
+export async function mount (props: any) {
   console.log('mount', props)
-  renderApp(props);
+  renderApp();
 }
 
-export async function unmount (props) {
+export async function unmount (props: any) {
   const { container } = props;
   if (typeof ReactDOM !== 'undefined') {
     console.log(container);

@@ -7,7 +7,7 @@ import { Route, Switch, HashRouter, Link } from 'react-router-dom';
 import User from './pages/User';
 import Home from './pages/Home';
 
-import { registerMicroApps, start, loadMicroApp } from 'qiankun';
+import { registerMicroApps, start, loadMicroApp } from './qiankunLocal';
 
 registerMicroApps([
   {
@@ -21,7 +21,7 @@ registerMicroApps([
 start();
 
 const LoadApp = () => {
-  const ref = useRef();
+  const ref = useRef<any>();
   console.log('this is LoadApp')
   useEffect(() => {
     let res = loadMicroApp({

@@ -9,11 +9,11 @@ const configs = {
     rules: []
   },
   resolve: {
-    extensions: ['.jsx', '.js', '.json'],
+    extensions: ['.jsx', '.js', '.json', '.ts', '.tsx'],
   }
 }
 configs.entry = {
-  main: join('src/main.js')
+  main: join('src/main.tsx')
 }
 
 configs.output = {
@@ -35,6 +35,17 @@ configs.module.rules.push({
       presets: ['@babel/preset-react', '@babel/preset-env']
     }
   }
-})
+});
+
+configs.module.rules.push({
+  test: /\.tsx?$/,
+  exclude: /node_modules/,
+  use: {
+    loader: 'ts-loader',
+    options: {
+      silent: true,
+    }
+  },
+});
 
 module.exports = configs;
